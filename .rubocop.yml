@@ -1,0 +1,46 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.2.2
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*'
+    - 'spec/**/*'
+    - 'vendor/**/*'
+    - 'tmp/*'
+    - 'config/application.rb'
+
+Layout/LineLength:
+  Max: 100
+
+Metrics/CyclomaticComplexity:
+  Max: 5
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/RegexpLiteral:
+  EnforcedStyle: percent_r
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - test
+    - development

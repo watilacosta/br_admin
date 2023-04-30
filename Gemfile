@@ -59,6 +59,15 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'pry-rails'
+  gem 'rails_best_practices'
+  gem 'rspec-rails', '~> 6.0.0'
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rake', require: false
+  gem 'rubocop-rspec', require: false
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -72,4 +81,20 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'brakeman'
+  gem 'bullet'
+  gem 'database_cleaner-active_record'
+  gem 'rails-erd'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', require: false
+  gem 'webmock'
 end
+
+gem 'interactor', '~> 3.0'
+gem 'interactor-rails', '~> 2.0'
+gem "paranoia"
+gem 'pundit'
+gem "importmap-rails", "~> 1.1"
+gem 'config'
+
+gem "devise", "~> 4.9"

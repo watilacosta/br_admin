@@ -1,0 +1,38 @@
+services:
+  mailcatcher:
+    networks:
+      br_admin:
+    container_name: br_admin_mailcatcher
+    restart: on-failure
+    image: dockage/mailcatcher:0.8.2
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+  db:
+    networks:
+      br_admin:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+  web:
+    networks:
+      br_admin:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle install && bundle exec rails s -p 3001 -b '0.0.0.0'"
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/home/br-admin
+    ports:
+      - "3001:3001"
+    links:
+      - mailcatcher
+    depends_on:
+      - db
+
+networks:
+  br_admin:
+    name: br_admin
+    external: true
