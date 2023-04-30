@@ -1,5 +1,5 @@
 module Dov
-  class DashboardController < ApplicationController
+  class DashboardController < DovController
     def index; end
   end
 end
