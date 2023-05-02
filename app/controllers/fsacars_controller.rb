@@ -1,15 +1,15 @@
 class FsacarsController < ApplicationController
-  before_action :authenticate_pilot!
+  before_action :authenticate_pilot!, except: :connect_client
 
   # http://fsacars.com/demo/userquery.php
   def connect_client
-    return 'NOUSR' unless strong_params[:auth].present?
+    return render body: 'NOUSR', layout: false unless strong_params[:auth].present?
 
     sign_in(Pilot.find_by(email: strong_params[:user]))
 
-    return 'NOUSR' unless current_pilot
+    return render body: 'NOUSR', layout: false unless current_pilot
 
-    'USEROK'
+    render body: 'USEROK', layout: false
   end
 
   private

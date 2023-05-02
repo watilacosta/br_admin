@@ -1,3 +1,7 @@
 <h1>Site#index</h1>
 <%= link_to 'DOV', dov_dashboard_path %>
-<%= button_to 'Logout', destroy_pilot_session_path, method: :delete %>
+
+<%- if pilot_signed_in? %>
+  <%= button_to 'Logout', destroy_pilot_session_path, method: :delete %>
+<% end %>
+

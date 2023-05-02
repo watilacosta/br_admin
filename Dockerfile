@@ -1,21 +1,18 @@
 FROM ruby:3.2.2-bullseye
 
 RUN apt-get update -qq && apt-get install -y build-essential \
+    nodejs \
+    yarn \
     postgresql-client \
     libpq-dev \
     graphviz \
-    git-core  \
-    zlib1g-dev  \
-    libssl-dev  \
-    libreadline-dev  \
-    libyaml-dev  \
-    libsqlite3-dev  \
-    sqlite3  \
-    libxml2-dev  \
-    libxslt1-dev  \
-    libcurl4-openssl-dev  \
-    software-properties-common  \
-    libffi-dev
+    gnupg2 \
+    less \
+    git \
+    libpq-dev \
+    libvips \
+    curl \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /home/br-admin
 COPY Gemfile /home/br-admin/Gemfile
