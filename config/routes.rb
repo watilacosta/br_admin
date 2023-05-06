@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   end
 
   get 'fsacars/connect_client', to: 'fsacars#connect_client'
+
+  resources :pirep, only: [:new]
 end

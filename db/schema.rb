@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_30_193955) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_03_214503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,4 +45,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_30_193955) do
     t.index ["reset_password_token"], name: "index_pilots_on_reset_password_token", unique: true
   end
 
+  create_table "pireps", force: :cascade do |t|
+    t.bigint "pilot_id", null: false
+    t.string "orig"
+    t.string "dest"
+    t.string "eqpt"
+    t.string "hours"
+    t.text "pirep"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pilot_id"], name: "index_pireps_on_pilot_id"
+  end
+
+  add_foreign_key "pireps", "pilots"
 end

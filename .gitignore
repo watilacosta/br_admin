@@ -37,3 +37,5 @@
 
 # Ignore local settings
 ./config/settings.local.yml
+
+.idea/*
