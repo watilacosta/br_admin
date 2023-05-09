@@ -10,6 +10,8 @@ class PirepController < ApplicationController
       hours: permitted_params[:blocktime],
       pirep: permitted_params[:pirep]
     )
+
+    binding.pry
   end
 
   private
